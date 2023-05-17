@@ -8,7 +8,11 @@ const routes: Routes = [
     component: StudentsComponent
   },
   {
-    path: 'edit',
+    path: 'edit/:id/:action',
+    component: EditStudentComponent
+  },
+  {
+    path: 'create/:action',
     component: EditStudentComponent
   },
 ];

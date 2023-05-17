@@ -4,6 +4,7 @@ import { Student } from 'src/app/utils/interfaces/student';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { ActionsEnum } from 'src/app/utils/enums/enums-global';
 
 @Component({
   selector: 'app-students',
@@ -37,7 +38,17 @@ export class StudentsComponent implements OnInit {
   }
 
   edit(student: Student) {
-    this.router.navigateByUrl('/students/edit')
+    this.router.navigateByUrl(`/students/edit/${student.id}/${ActionsEnum.edit}`);
+  }
+
+  create() {
+    this.router.navigateByUrl(`/students/create/${ActionsEnum.create}`);
+  }
+
+  delete(id: number) {
+    this.studentsService.deleteStudent(id).subscribe(() => {
+      this.getListStudents();
+    })
   }
 
 }

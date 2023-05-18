@@ -125,7 +125,7 @@ export class EditCourseComponent implements OnInit {
       this.coursesService.postCourse(this.form.value)
         .pipe(first(observador => !!observador))
         .subscribe(() => {
-          this.router.navigateByUrl('students')
+          this.router.navigateByUrl('courses')
         });
     }
   }

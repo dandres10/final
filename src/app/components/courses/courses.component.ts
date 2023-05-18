@@ -4,6 +4,7 @@ import { Course } from 'src/app/utils/interfaces/course';
 import { CoursesService } from './courses.service';
 import { Router } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
+import { ActionsEnum } from 'src/app/utils/enums/enums-global';
 
 @Component({
   selector: 'app-courses',
@@ -37,7 +38,17 @@ export class CoursesComponent implements OnInit {
   }
 
   edit(course: Course) {
-    this.router.navigateByUrl('/courses/edit')
+    this.router.navigateByUrl(`/courses/edit/${course.id}/${ActionsEnum.edit}`)
   }  
+
+  create() {
+    this.router.navigateByUrl(`/courses/create/${ActionsEnum.create}`);
+  }
+
+  delete(id: number) {
+    this.coursesService.deleteCourse(id).subscribe(() => {
+      this.getListCourses();
+    })
+  }
 
 }

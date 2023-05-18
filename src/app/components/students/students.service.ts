@@ -8,7 +8,8 @@ import { Student } from 'src/app/utils/interfaces/student';
 })
 export class StudentsService {
 
-  API = 'https://645ef9079d35038e2d1ad475.mockapi.io';
+  // API = 'https://645ef9079d35038e2d1ad475.mockapi.io';
+  API = 'https://64644d9e127ad0b8f89bde0f.mockapi.io';
 
   constructor(private http: HttpClient) { }
 

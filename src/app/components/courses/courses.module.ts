@@ -15,6 +15,7 @@ import { MaterialModule } from "src/app/utils/material/material.module";
   exports: [],
   imports: [
     CommonModule,
+    CoursesRoutes,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,

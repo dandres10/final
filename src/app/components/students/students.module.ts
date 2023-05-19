@@ -5,10 +5,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { EditStudentComponent } from './edit-student/edit-student.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MaterialModule } from "src/app/utils/material/material.module";
+import { DialogStudentViewComponent } from "./dialog-student-view/dialog-student-view.component";
 
 @NgModule({
   declarations: [
-    EditStudentComponent
+    EditStudentComponent,
+    DialogStudentViewComponent
   ],
   imports: [
     CommonModule,

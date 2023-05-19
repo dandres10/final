@@ -5,6 +5,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ActionsEnum } from 'src/app/utils/enums/enums-global';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogStudentViewComponent } from './dialog-student-view/dialog-student-view.component';
 
 @Component({
   selector: 'app-students',
@@ -24,7 +26,7 @@ export class StudentsComponent implements OnInit {
 
   listStudent: Student[] = [];
 
-  constructor(private studentsService: StudentsService, private router: Router) { }
+  constructor(private studentsService: StudentsService, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getListStudents();
@@ -49,6 +51,14 @@ export class StudentsComponent implements OnInit {
     this.studentsService.deleteStudent(id).subscribe(() => {
       this.getListStudents();
     })
+  }
+
+  popup(student: Student) {
+    this.dialog.open(DialogStudentViewComponent, {
+      data: {
+        student
+      },
+    });
   }
 
 }
